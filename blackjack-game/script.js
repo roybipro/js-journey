@@ -19,7 +19,7 @@ function startGame() {
         isAlive = false
     }
    
-    
+    messageEl.textContent = message
 }
 
 
