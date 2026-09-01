@@ -1,6 +1,6 @@
 
-let firstCard = 10
-let secondCard = 7
+let firstCard = getRandomCard()
+let secondCard = getRandomCard()
 let cards = [firstCard, secondCard]
 let sum = firstCard + secondCard
 let hasBlackJack = false
@@ -19,6 +19,17 @@ function startGame() {
     renderGame()
 }
 
+function getRandomCard() {
+    let randomNumber = Math.floor(Math.random() * 13) + 1
+    if (randomNumber > 10) {
+        return 10
+    } else if (randomNumber === 1) {
+        return 11
+    } else {
+        return randomNumber
+    }
+}
+
 function renderGame() {
 
     cardsEl.textContent = "Cards: " 
@@ -29,7 +40,7 @@ function renderGame() {
     if (sum <= 20) {
         message = "Do you want to draw a new card?"
     } else if (sum === 21) {
-        message = "Youh ve got Blackjack!"
+        message = "You've got Blackjack!"
         hasBlackJack = true
     } else {
         message = "You're out of the game!"
@@ -40,7 +51,7 @@ function renderGame() {
 }
 
 function newCard() {
-let card = 6
+let card = getRandomCard()
 sum+=card
 cards.push(card)
 renderGame()
